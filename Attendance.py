@@ -11,7 +11,8 @@ def register_attendance():
 
 # function to save attendance record to file
 def save_attendance():
-    filename = input("Enter filename to save attendance records: ")
+    file = input("Enter filename to save attendance records: ")
+    filename = file + ".csv"
     with open(filename, "w") as file:
         for record in attendance:
             file.write(f"{record['name']},{record['time']}\n")
@@ -19,7 +20,9 @@ def save_attendance():
 
 # function to read attendance records from file
 def read_attendance():
-    filename = input("Enter filename to read attendance records: ")
+    file = input("Enter filename to read attendance records: ")
+    filename = file + ".csv"
+    
     with open(filename, "r") as file:
         records = file.readlines()
         if not records:
